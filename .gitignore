@@ -1,0 +1,24 @@
+# Backend
+**/vendor/
+**/node_modules/
+**/.env
+**/storage/*.key
+**/storage/framework/cache/data/*
+**/storage/framework/sessions/*
+**/storage/framework/views/*
+**/storage/logs/*.log
+**/temp
+**/.phpunit.result.cache
+
+# Frontend
+**/dist/
+**/build/
+.DS_Store
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+# (We want to keep the backup file we created)
+!hr_system_backup.sql
