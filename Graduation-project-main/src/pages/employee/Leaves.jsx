@@ -146,14 +146,14 @@ const EmployeeLeaves = () => {
             const history = data.leave_history;
             const remaining = data.leave_balance;
 
-            // ✅ totals (policy ثابتة)
+            
             const totals = {
                 annual: 21,
                 sick: 10,
                 casual: 5
             };
 
-            // ✅ balances (remaining مش used)
+            
             setBalances({
                 casual: {
                     remaining: remaining.casual,
@@ -169,7 +169,7 @@ const EmployeeLeaves = () => {
                 }
             });
 
-            // ✅ history mapping
+            
             const formattedHistory = history.map((req) => ({
                 id: `${req.start_date}-${req.end_date}`,
                 type: capitalizeWords(req.leave_type),
@@ -217,9 +217,9 @@ const EmployeeLeaves = () => {
                 onSuccess={fetchLeaves} 
             />
 
-            {/* Balances Row */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <div className="pro-card">
                     <div className="flex justify-between items-center mb-3">
                         <span className="text-gray-600 font-medium">Casual Leave</span>
                         <span className="px-2 py-1 bg-gray-100 text-xs font-bold rounded text-gray-700">
@@ -231,7 +231,7 @@ const EmployeeLeaves = () => {
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <div className="pro-card">
                     <div className="flex justify-between items-center mb-3">
                         <span className="text-gray-600 font-medium">Sick Leave</span>
                         <span className="px-2 py-1 bg-gray-100 text-xs font-bold rounded text-gray-700">
@@ -243,7 +243,7 @@ const EmployeeLeaves = () => {
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <div className="pro-card">
                     <div className="flex justify-between items-center mb-3">
                         <span className="text-gray-600 font-medium">Vacation</span>
                         <span className="px-2 py-1 bg-gray-100 text-xs font-bold rounded text-gray-700">
@@ -256,7 +256,7 @@ const EmployeeLeaves = () => {
                 </div>
             </div>
 
-            {/* Request History */}
+            {}
             <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 min-h-[200px]">
                 <div className="p-5 border-b border-gray-100">
                     <h2 className="text-lg font-semibold text-gray-800">Request History</h2>

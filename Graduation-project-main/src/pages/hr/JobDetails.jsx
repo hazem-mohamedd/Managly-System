@@ -14,7 +14,7 @@ const JobDetails = () => {
     try {
       const res = await api.get(`/vacancy/${jobId}`);
 
-      // ✅ أهم سطر
+      
       setJob(res.data);
 
     } catch (err) {
@@ -39,7 +39,7 @@ const JobDetails = () => {
   return (
     <div className="max-w-4xl mx-auto">
 
-      {/* Back */}
+      {}
       <button
         onClick={() => navigate('/hr/recruitment')}
         className="mb-6 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-2"
@@ -48,7 +48,7 @@ const JobDetails = () => {
         Back
       </button>
 
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+      <div className="pro-card">
 
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
           {job.title}

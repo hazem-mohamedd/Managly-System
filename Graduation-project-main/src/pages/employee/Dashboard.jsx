@@ -42,7 +42,7 @@ const EmployeeDashboard = () => {
 
             <div className="space-y-6">
                 
-                {/* Today's Status Card */}
+                {}
                 <Card>
                     <div className="p-5 border-b border-gray-100">
                         <h2 className="text-lg font-semibold text-gray-800">Today's Status</h2>
@@ -88,7 +88,7 @@ const EmployeeDashboard = () => {
                     </div>
                 </Card>
 
-                {/* Quick Actions Buttons */}
+                {}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <button 
                         onClick={() => navigate('/employee/leaves')}

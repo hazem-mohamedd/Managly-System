@@ -67,7 +67,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </div>
 
-            {/* Account Settings */}
+            {}
             <Section id="account-settings" title="Account Settings" icon={User}>
                 <div className="flex items-center space-x-6 mb-6">
                     <div className="relative">
@@ -127,7 +127,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </Section>
 
-            {/* Notification Settings */}
+            {}
             <Section id="notification-settings" title="Notification Settings" icon={Bell}>
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -161,7 +161,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </Section>
 
-            {/* Attendance Settings */}
+            {}
             <Section title="Attendance Settings" icon={Clock}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div>
@@ -186,7 +186,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </Section>
 
-            {/* System Preferences */}
+            {}
             <Section title="System Preferences" icon={Sliders}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -209,7 +209,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </Section>
 
-            {/* Security Settings */}
+            {}
             <Section title="Security Settings" icon={Shield}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -233,7 +233,7 @@ const Settings = ({ userProfilePicture, setUserProfilePicture }) => {
                 </div>
             </Section>
 
-            {/* Support */}
+            {}
             <Section title="Help & Support" icon={HelpCircle}>
                 <div className="flex flex-col sm:flex-row gap-4">
                     <button className="flex-1 flex items-center justify-center text-sm font-medium text-blue-700 bg-blue-50 border border-blue-100 px-4 py-2.5 rounded-lg hover:bg-blue-100 transition-colors">

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import TopHeader from './components/TopHeader';
 import { Outlet } from 'react-router-dom';
+import PageTransition from './components/PageTransition';
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,7 +11,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex font-sans">
+    <div className="min-h-screen flex font-sans">
       
       <Sidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
 
@@ -18,7 +19,9 @@ function App() {
         <TopHeader setMobileOpen={setMobileOpen} userProfilePicture={userProfilePicture} />
 
         <main className="flex-1 p-6 lg:p-8 overflow-y-auto w-full">
-          <Outlet context={{ userProfilePicture, setUserProfilePicture }} />
+          <PageTransition>
+            <Outlet context={{ userProfilePicture, setUserProfilePicture }} />
+          </PageTransition>
         </main>
       </div>
 

@@ -158,7 +158,7 @@ const Recruitment = () => {
         )}
       </div>
 
-      {/* --- MODAL (Create Vacancy) --- */}
+      {}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[2px] animate-in fade-in duration-200">
           <div className="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">

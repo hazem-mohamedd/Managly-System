@@ -35,7 +35,7 @@ const SupervisorDashboard = () => {
       console.log("Debug: Initiating Supervisor API call...");
       const res = await api.get('/web-supervisor-dashboard');
       
-      // Setting data from response
+      
       setData(res);
     } catch (err) {
       console.error("Dashboard error:", err);
@@ -60,7 +60,7 @@ const SupervisorDashboard = () => {
   const pendingLeaves = stats.pending_leaves ?? 0;
   const teamSize = stats.team_size ?? 0;
 
-  // Helper for Bar Colors
+  
   const getChartColor = (name) => {
     switch (name) {
       case 'Completed': return '#10B981';
@@ -73,9 +73,9 @@ const SupervisorDashboard = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-6 p-6">
 
-      {/* Stats Grid */}
+      {}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Team Size Card */}
+        {}
         <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-2xl p-6 relative overflow-hidden group">
           <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-300">
             <Users size={100} />
@@ -91,7 +91,7 @@ const SupervisorDashboard = () => {
           </div>
         </div>
 
-        {/* Pending Leaves Card */}
+        {}
         <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-2xl p-6 relative overflow-hidden group">
           <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-300">
             <CalendarDays size={100} />
@@ -108,7 +108,7 @@ const SupervisorDashboard = () => {
         </div>
       </div>
 
-      {/* 2. Updated Task Chart Section */}
+      {}
       <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
@@ -135,7 +135,7 @@ const SupervisorDashboard = () => {
         </div>
       </div>
 
-      {/* Leaves Section */}
+      {}
       <div className="bg-white/90 border rounded-2xl p-6 shadow-sm">
         <h2 className="text-xl font-bold mb-4">Leave Requests</h2>
         <div className="space-y-4">
@@ -157,7 +157,7 @@ const SupervisorDashboard = () => {
         </div>
       </div>
 
-      {/* Team Attendance Section */}
+      {}
       <div className="bg-white/90 border rounded-2xl p-6 shadow-sm">
         <h2 className="text-xl font-bold mb-4">Team Attendance</h2>
         <div className="space-y-3">

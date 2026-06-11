@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
@@ -105,23 +105,30 @@ const Page = () => {
   return (
     <div className="font-sans antialiased text-slate-900 bg-white">
 
-      {/* ================= HERO ================= */}
+      {}
       <section
         id="home"
         className="pt-24 pb-28 bg-gradient-to-b from-blue-50 to-white"
       >
         <div className="max-w-6xl mx-auto px-5 text-center">
 
-          <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-8">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8 inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700"
+          >
             Next-Gen HR Platform
-          </span>
+          </motion.span>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-7xl"
+          >
             Manage your team <br />
-            <span className="text-blue-600">
-              without the chaos.
-            </span>
-          </h1>
+            <span className="text-gradient">without the chaos.</span>
+          </motion.h1>
 
           <p className="max-w-2xl mx-auto text-lg text-slate-500 leading-relaxed mb-10">
             Attendance, payroll, approvals, and employee management
@@ -130,20 +137,28 @@ const Page = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-            <button className="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center gap-2 transition">
+            <motion.button
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="pro-btn-primary flex items-center justify-center gap-2 px-8 py-4"
+            >
               Start Free Trial
               <ArrowRight size={18} />
-            </button>
+            </motion.button>
 
-            <button className="px-8 py-4 rounded-xl border border-slate-200 hover:border-blue-200 hover:bg-blue-50 font-semibold transition">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="pro-btn-secondary px-8 py-4"
+            >
               Book a Demo
-            </button>
+            </motion.button>
 
           </div>
         </div>
       </section>
 
-      {/* ================= FEATURES ================= */}
+      {}
       <section id="features" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
 
@@ -160,9 +175,14 @@ const Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="p-7 rounded-2xl border border-slate-100 hover:shadow-lg transition"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: index * 0.08, duration: 0.45 }}
+                whileHover={{ y: -6 }}
+                className="pro-card-interactive p-7"
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${feature.bg}`}
@@ -177,14 +197,14 @@ const Page = () => {
                 <p className="text-slate-500 leading-relaxed">
                   {feature.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
 
           </div>
         </div>
       </section>
 
-      {/* ================= COMPARISON ================= */}
+      {}
       <section className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-5">
 
@@ -256,7 +276,7 @@ const Page = () => {
         </div>
       </section>
 
-      {/* ================= PRICING ================= */}
+      {}
       <section id="pricing" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5">
 

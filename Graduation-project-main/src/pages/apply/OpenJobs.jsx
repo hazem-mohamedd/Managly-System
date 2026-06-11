@@ -32,7 +32,7 @@ const ApplyRecruitment = () => {
     fetchJobs();
   }, []);
 
-  // 🔍 FILTER
+  
   const filtered = jobs.filter(j =>
     j.title?.toLowerCase().includes(search.toLowerCase())
   );
@@ -40,7 +40,7 @@ const ApplyRecruitment = () => {
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
 
-      {/* HEADER */}
+      {}
       <div>
         <h1 className="text-4xl font-extrabold text-gray-900">
           Open Positions
@@ -50,7 +50,7 @@ const ApplyRecruitment = () => {
         </p>
       </div>
 
-      {/* SEARCH */}
+      {}
       <div className="flex items-center gap-3 bg-white p-3 rounded-2xl border shadow-sm">
         <Search size={18} className="text-gray-400" />
         <input
@@ -61,7 +61,7 @@ const ApplyRecruitment = () => {
         />
       </div>
 
-      {/* LOADING */}
+      {}
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 gap-3">
           <Loader2 className="animate-spin text-indigo-600" size={40} />
@@ -69,14 +69,14 @@ const ApplyRecruitment = () => {
         </div>
       ) : (
         <>
-          {/* EMPTY */}
+          {}
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-400">
               No jobs found
             </div>
           ) : (
 
-            /* JOB GRID */
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
               {filtered.map(job => (
@@ -86,29 +86,29 @@ const ApplyRecruitment = () => {
                   className="group bg-white border rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer relative overflow-hidden"
                 >
 
-                  {/* Background icon */}
+                  {}
                   <div className="absolute -right-6 -bottom-6 opacity-5 group-hover:scale-110 transition-transform">
                     <Briefcase size={120} />
                   </div>
 
                   <div className="relative z-10 space-y-3">
 
-                    {/* Badge */}
+                    {}
                     <span className="text-xs font-bold bg-indigo-50 text-indigo-600 px-2 py-1 rounded-lg">
                       Open Position
                     </span>
 
-                    {/* Title */}
+                    {}
                     <h2 className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
                       {job.title}
                     </h2>
 
-                    {/* Description */}
+                    {}
                     <p className="text-sm text-gray-500 line-clamp-2">
                       {job.description}
                     </p>
 
-                    {/* Footer */}
+                    {}
                     <div className="flex justify-between items-center pt-2 text-xs text-gray-400">
                       <span>ID: {job.vacancy_id}</span>
                       <Briefcase size={16} />

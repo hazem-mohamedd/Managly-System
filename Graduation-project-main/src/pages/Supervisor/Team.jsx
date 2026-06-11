@@ -8,9 +8,9 @@ const SupervisorEmployees = () => {
   const [employees, setEmployees] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // =========================
-  // FETCH TEAM
-  // =========================
+  
+  
+  
   useEffect(() => {
     fetchTeam()
   }, [])
@@ -21,7 +21,7 @@ const SupervisorEmployees = () => {
 
       const res = await api.get('/team/members')
 
-      // 🔥 handle كل أشكال الريسبونس
+      
       if (Array.isArray(res)) {
         setEmployees(res)
       } else if (Array.isArray(res.data)) {
@@ -40,19 +40,19 @@ const SupervisorEmployees = () => {
     }
   }
 
-  // =========================
-  // STATUS COLOR
-  // =========================
+  
+  
+  
   const getStatusClass = (status) => {
     if (status === 'present') return 'badge success'
     if (status === 'late') return 'badge warning'
     if (status === 'leave') return 'badge info'
-    return 'badge danger' // absent
+    return 'badge danger' 
   }
 
-  // =========================
-  // LOADING
-  // =========================
+  
+  
+  
   if (loading) {
     return (
       <div style={{ padding: 40, textAlign: 'center' }}>
@@ -64,7 +64,7 @@ const SupervisorEmployees = () => {
   return (
     <div>
 
-      {/* HEADER */}
+      {}
       <div className="page-header">
         <div>
           <h1 className="page-title">Team Directory</h1>
@@ -76,7 +76,7 @@ const SupervisorEmployees = () => {
         
       </div>
 
-      {/* TABLE */}
+      {}
       <div className="glass-panel" style={{ marginTop: 20 }}>
         <table className="custom-table">
           <thead>
@@ -94,12 +94,12 @@ const SupervisorEmployees = () => {
             {employees.map(emp => (
               <tr key={emp.user_id}>
 
-                {/* ID */}
+                {}
                 <td>
                   <strong>#{emp.user_id}</strong>
                 </td>
 
-                {/* EMPLOYEE */}
+                {}
                 <td>
                   <div>
                     <div style={{ fontWeight: 600 }}>
@@ -111,7 +111,7 @@ const SupervisorEmployees = () => {
                   </div>
                 </td>
 
-                {/* JOB */}
+                {}
                 <td>
                   <div style={{ fontWeight: 500 }}>
                     {emp.job_title || 'N/A'}
@@ -121,19 +121,19 @@ const SupervisorEmployees = () => {
                   </div>
                 </td>
 
-                {/* CONTACT */}
+                {}
                 <td>
                   {emp.phone || '—'}
                 </td>
 
-                {/* STATUS */}
+                {}
                 <td>
                   <span className={getStatusClass(emp.attendance_status)}>
                     {emp.attendance_status}
                   </span>
                 </td>
 
-                {/* TASKS */}
+                {}
                 <td>
                   <div style={{ fontSize: 13 }}>
                     <div>Pending: {emp.pending_tasks}</div>

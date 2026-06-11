@@ -1,22 +1,16 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 import {
-  Database,
   Users,
-  Layers,
   Calendar,
-  Briefcase,
-  TrendingUp,
   ChartLine,
-  FileText,
-  CheckSquare,
-  Settings,
   LogOut,
   FolderDown,
   Wallet,
-  User
+  User,
 } from 'lucide-react';
+import { staggerContainer, staggerItem } from '../lib/motion';
 
 const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const navigate = useNavigate();
@@ -34,78 +28,82 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
   return (
     <>
-      {/* Overlay */}
-      <div
-        className={clsx(
-          "fixed inset-0 z-40 bg-black/50 md:hidden",
-          mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
+      <motion.div
+        className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm md:hidden"
+        initial={false}
+        animate={{ opacity: mobileOpen ? 1 : 0, pointerEvents: mobileOpen ? 'auto' : 'none' }}
+        transition={{ duration: 0.25 }}
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* Sidebar */}
-      <aside
+      <motion.aside
         className={clsx(
-          "fixed inset-y-0 left-0 w-64 text-white z-50 transform transition-transform duration-300 ease-in-out md:translate-x-0 flex flex-col",
-          mobileOpen ? "translate-x-0" : "-translate-x-full",
-
-          // 🔥 نفس ديزاين EmployeeLayout
-          "bg-gradient-to-b from-blue-800 to-blue-900"
+          'app-sidebar transform transition-transform duration-300 ease-out md:translate-x-0',
+          mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         )}
+        initial={false}
       >
-        {/* Logo */}
-        <div className="p-6 flex items-center gap-3 border-b border-blue-700">
-          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <span className="text-blue-800 font-bold text-xl">M</span>
-          </div>
-          <span className="text-2xl font-bold tracking-tight">Managly</span>
+        <div className="flex flex-col items-center justify-center border-b border-white/10 py-2 gap-1">
+          <motion.div
+            className="flex items-center justify-center"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: 'spring', stiffness: 400 }}
+          >
+            <img src="/logo.png" alt="Managly Logo" className="w-32 h-32 object-contain" />
+          </motion.div>
+          <p className="text-[18px] font-semibold uppercase tracking-widest text-blue-300/80">HR Suite</p>
         </div>
 
-        {/* Menu */}
-        <nav className="flex-1 py-6 px-4 space-y-2 overflow-y-auto">
+        <motion.nav
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+          className="scrollbar-thin flex-1 space-y-1 overflow-x-visible overflow-y-auto px-3 py-5"
+        >
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
 
             return (
-              <button
+              <motion.button
                 key={item.path}
+                variants={staggerItem}
                 onClick={() => {
                   navigate(item.path);
                   setMobileOpen(false);
                 }}
-                className={clsx(
-                  "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm font-medium w-full text-left",
-
-                  isActive
-                    ? "bg-blue-800 text-white shadow-md"
-                    : "text-blue-100 hover:bg-blue-800/50 hover:text-white"
-                )}
+                className={isActive ? 'nav-item-pro-active' : 'nav-item-pro overflow-visible'}
+                whileTap={{ scale: 0.98 }}
               >
-                <item.icon size={20} />
-                {item.label}
-              </button>
+                {isActive && (
+                  <motion.span
+                    layoutId="hr-nav-indicator"
+                    className="nav-active-indicator"
+                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="nav-item-content">
+                  <item.icon size={20} className={isActive ? 'text-white' : 'text-blue-200'} />
+                  <span className="truncate">{item.label}</span>
+                </span>
+              </motion.button>
             );
           })}
-        </nav>
+        </motion.nav>
 
-        {/* Logout */}
-        <div className="p-4 border-t border-blue-700 flex flex-col gap-3">
+        <div className="flex flex-col gap-2 border-t border-white/10 p-4">
           <button
             onClick={() => {
               localStorage.removeItem('isAuthenticated');
               navigate('/login');
             }}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-blue-100 hover:bg-blue-800 hover:text-white transition-colors w-full text-left"
+            className="nav-item-pro text-red-200/90 hover:bg-red-500/10 hover:text-red-100"
           >
             <LogOut size={20} />
             <span className="font-medium">Log Out</span>
           </button>
-
-          <div className="px-4 text-xs text-blue-300">
-            v1.0.0
-          </div>
+          <p className="px-4 text-xs text-blue-400/60">v1.0.0</p>
         </div>
-      </aside>
+      </motion.aside>
     </>
   );
 };

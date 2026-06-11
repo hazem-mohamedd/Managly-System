@@ -56,7 +56,7 @@ const AdminPayslips = () => {
     <p className="text-gray-500 mt-1 pl-1">Check your balance</p>
   </div>
 
-  {/* Net Salary Row - مميز */}
+  {}
   <div className="bg-emerald-50 p-8 rounded-3xl shadow-lg border border-emerald-300 flex flex-col items-center justify-center text-center md:col-span-3">
     <Banknote className="w-10 h-10 text-emerald-600 mb-4" />
     <p className="text-sm text-emerald-700 font-medium mb-1">Net Salary</p>
@@ -65,9 +65,9 @@ const AdminPayslips = () => {
     </p>
   </div>
 
-  {/* Other Summary Cards */}
+  {}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-    <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+    <div className="pro-card flex flex-col justify-between">
       <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mb-6">
         <Wallet className="w-6 h-6" />
       </div>
@@ -79,7 +79,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+    <div className="pro-card flex flex-col justify-between">
       <div className="w-12 h-12 bg-yellow-50 text-yellow-500 rounded-xl flex items-center justify-center mb-6">
         <Clock className="w-6 h-6" />
       </div>
@@ -91,7 +91,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    {/* Total Deductions */}
+    {}
     <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 md:col-span-2 flex items-center justify-between mt-2">
       <div className="flex items-center space-x-4">
         <div className="w-10 h-10 bg-red-50 text-red-500 rounded-full flex items-center justify-center shrink-0">
@@ -104,10 +104,8 @@ const AdminPayslips = () => {
       </span>
     </div>
   </div>
-  {/* =========================
-   SALARY CALCULATION (PRETTY UI)
-========================= */}
-<div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mt-6">
+  {}
+<div className="pro-card mt-6">
 
   <h2 className="text-lg font-bold text-gray-800 mb-5">
     How Your Salary is Calculated
@@ -115,7 +113,7 @@ const AdminPayslips = () => {
 
   <div className="space-y-4">
 
-    {/* Step 1 */}
+    {}
     <div className="flex items-start gap-3">
       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-red-50 text-red-500 font-bold">
         1
@@ -131,7 +129,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    {/* Step 2 */}
+    {}
     <div className="flex items-start gap-3">
       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-50 text-yellow-600 font-bold">
         2
@@ -147,7 +145,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    {/* Step 3 */}
+    {}
     <div className="flex items-start gap-3">
       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold">
         3
@@ -165,10 +163,8 @@ const AdminPayslips = () => {
 
   </div>
 </div>
-{/* =========================
-   EXTRA INFO
-========================= */}
-<div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mt-6">
+{}
+<div className="pro-card mt-6">
 
   <h2 className="text-lg font-bold text-gray-800 mb-5">
     Additional Calculation Info
@@ -176,7 +172,7 @@ const AdminPayslips = () => {
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-    {/* Day Rate */}
+    {}
     <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
       <p className="text-sm text-blue-700 font-semibold mb-2">
         Daily Rate
@@ -189,7 +185,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    {/* Minute Rate */}
+    {}
     <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
       <p className="text-sm text-purple-700 font-semibold mb-2">
         Minute Rate
@@ -202,7 +198,7 @@ const AdminPayslips = () => {
       </div>
     </div>
 
-    {/* Multiplier */}
+    {}
     <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
       <p className="text-sm text-emerald-700 font-semibold mb-2">
         Overtime Multiplier

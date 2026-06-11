@@ -36,7 +36,7 @@ const SupervisorTasks = () => {
         }
     };
 
-    // ✅ FIXED: status update (correct endpoint)
+    
     const handleUpdateStatus = async (task_id, status) => {
         if (!task_id) return;
 
@@ -54,7 +54,7 @@ const SupervisorTasks = () => {
         }
     };
 
-    // ✅ CREATE TASK
+    
     const handleAssign = async () => {
         if (!form.title || !form.assigned_to) return;
 
@@ -146,11 +146,11 @@ const SupervisorTasks = () => {
                                 </div>
                               </div>
 
-                        {/* CONTENT */}
+                        {}
                         <h4>{task.title}</h4>
                         <p>{task.description}</p>
 
-                        {/* FOOTER */}
+                        {}
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                                 <Calendar size={14} />
@@ -170,7 +170,7 @@ const SupervisorTasks = () => {
                 ))}
             </div>
 
-            {/* MODAL */}
+            {}
             {isAssignOpen && (
   <div
     className="modal-overlay"
@@ -194,7 +194,7 @@ const SupervisorTasks = () => {
       }}
     >
 
-      {/* HEADER */}
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -228,7 +228,7 @@ const SupervisorTasks = () => {
         </button>
       </div>
 
-      {/* FORM */}
+      {}
       <div style={{ display: 'grid', gap: '14px' }}>
 
         <div className="form-group">
@@ -274,7 +274,7 @@ const SupervisorTasks = () => {
 
       </div>
 
-      {/* ACTIONS */}
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'flex-end',

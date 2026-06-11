@@ -5,7 +5,7 @@ import html2pdf from 'html2pdf.js';
 
 const SupervisorReports = () => {
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]); // داتا البحث
+    const [filteredData, setFilteredData] = useState([]); 
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -63,7 +63,7 @@ const SupervisorReports = () => {
     return (
         <div className="p-6 max-w-7xl mx-auto animate-in fade-in duration-500 space-y-6">
             
-            {/* --- Header Section --- */}
+            {}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Team Performance Report</h1>
@@ -87,7 +87,7 @@ const SupervisorReports = () => {
                 </div>
             </div>
 
-            {/* --- Search & Filters --- */}
+            {}
             <div className="flex items-center gap-4 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm">
                 <div className="relative flex-1">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
@@ -104,7 +104,7 @@ const SupervisorReports = () => {
                 </button>
             </div>
 
-            {/* --- Table Container --- */}
+            {}
             <div className="bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
                 {error && (
                     <div className="p-4 bg-rose-50 text-rose-600 text-center text-sm font-bold border-b border-rose-100">
@@ -196,7 +196,7 @@ const SupervisorReports = () => {
                 )}
             </div>
 
-            {/* Hidden Content to be printed to PDF */}
+            {}
             <div style={{ position: 'absolute', top: '-10000px', left: '-10000px' }}>
                 <div ref={pdfRef} style={{ width: '900px', padding: '30px', backgroundColor: '#fff', fontFamily: 'Arial, sans-serif' }}>
                     <h2 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '20px', color: '#0f172a' }}>Team Performance Report</h2>

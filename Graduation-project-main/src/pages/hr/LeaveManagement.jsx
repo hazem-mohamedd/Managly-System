@@ -8,14 +8,14 @@ const LeaveManagement = () => {
     const [error, setError] = useState(null);
     const [stats, setStats] = useState({ pending: 0, approved: 0 });
 
-    // 1. Data Transformer: تم تعديله ليتناسب مع Flattened Data من الـ Backend الجديد
+    
     const transformRequests = (apiResponse) => {
-        // الوصول إلى المصفوفة داخل data.data لأن الـ Backend يرسلها بهذا الشكل
+        
         const dataArray = Array.isArray(apiResponse?.data) ? apiResponse.data : [];
         
         return dataArray.map(req => ({
-            id: req.id, // تم التعديل ليتناسب مع 'leave_id as id' في الـ SQL
-            employeeName: `${req.first_name} ${req.last_name}`, // الأسماء أصبحت في المستوى الأول (ليست داخل user)
+            id: req.id, 
+            employeeName: `${req.first_name} ${req.last_name}`, 
             type: req.leave_type || 'General',
             startDate: req.start_date || 'N/A',
             endDate: req.end_date || 'N/A',
@@ -24,17 +24,17 @@ const LeaveManagement = () => {
         }));
     };
 
-    // 2. Fetch Logic
+    
     const fetchRequests = useCallback(async (signal) => {
         setIsLoading(true);
         setError(null);
         try {
             const response = await api.get('/hr/leave-requests', { signal });
-            const cleanedData = transformRequests(response); // تمرير الاستجابة كاملة للمحول
+            const cleanedData = transformRequests(response); 
             
             setRequests(cleanedData);
 
-            // حساب الإحصائيات من البيانات المعالجة
+            
             const pending = cleanedData.filter(r => r.status === 'pending').length;
             const approved = cleanedData.filter(r => r.status === 'approved').length;
             setStats({ pending, approved });
@@ -54,12 +54,12 @@ const LeaveManagement = () => {
         return () => controller.abort();
     }, [fetchRequests]);
 
-    // 3. Action Handler
+    
     const handleAction = async (id, action) => {
         try {
-            // الربط مع الـ Routes الجديدة: /leave/{id}/approve أو /leave/{id}/reject
+            
             await api.put(`/leave/${id}/${action}`);
-            fetchRequests(); // تحديث البيانات بعد الأكشن
+            fetchRequests(); 
         } catch (err) {
             alert(`Action failed: ${err.message}`);
         }
@@ -82,9 +82,9 @@ const LeaveManagement = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                <div className="pro-card flex items-center gap-4">
                     <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center">
                         <Clock size={24} />
                     </div>
@@ -93,7 +93,7 @@ const LeaveManagement = () => {
                         <div className="text-sm text-gray-500 font-medium">Pending Requests</div>
                     </div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                <div className="pro-card flex items-center gap-4">
                     <div className="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center">
                         <Check size={24} />
                     </div>
@@ -111,7 +111,7 @@ const LeaveManagement = () => {
                 </div>
             )}
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div className="pro-table-wrap">
                 <div className="p-5 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
                     <span className="font-bold text-gray-800">Recent Requests</span>
                     <button 

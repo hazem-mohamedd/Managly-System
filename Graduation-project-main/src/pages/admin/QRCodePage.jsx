@@ -7,42 +7,21 @@ function AdminQRCodePage() {
   const [qrUrl, setQrUrl] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // =========================
-  // FETCH QR + DEBUG
-  // =========================
   const fetchQR = async () => {
     try {
       setLoading(true);
-
-      const url = 'http://127.0.0.1:8000/api/company-qr';
-
+      const url = 'http://127.0.0.1:8000/api/qrcode';
       const res = await axios.get(url, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
-        responseType: 'blob' // SVG
+        responseType: 'blob' 
       });
 
-      // 🔥 DEBUG 1: full response
-      console.log("FULL RESPONSE:", res);
-
-      // 🔥 DEBUG 2: headers
-      console.log("HEADERS:", res.headers);
-
-      // 🔥 DEBUG 3: blob data
-      console.log("DATA TYPE:", res.data);
-      console.log("BLOB SIZE:", res.data.size);
-
       const imageUrl = URL.createObjectURL(res.data);
-
-      console.log("IMAGE URL:", imageUrl);
-
       setQrUrl(imageUrl);
-
     } catch (err) {
-      // 🔥 DEBUG ERROR
       console.log("QR ERROR:", err);
-      console.log("RESPONSE ERROR:", err.response);
     } finally {
       setLoading(false);
     }
