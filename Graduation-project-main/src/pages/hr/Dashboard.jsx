@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { api } from '../../api/api'; // Import your custom axios instance
+import { motion } from 'framer-motion';
+import { api } from '../../api/api';
+import LoadingScreen from '../../components/ui/LoadingScreen'; 
 import { 
   Users, 
   UserCheck, 
@@ -24,7 +26,7 @@ import {
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null); // Debug: Track errors
+  const [error, setError] = useState(null); 
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -60,14 +62,9 @@ const fetchDashboardData = async () => {
   };
 
   // 1. Loading State
-  if (loading) return (
-    <div className="flex h-screen flex-col items-center justify-center bg-gray-50 gap-4">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      <p className="text-gray-500 font-medium">Fetching HR Data...</p>
-    </div>
-  );
+  if (loading) return <LoadingScreen message="Fetching HR Data..." />;
 
-  // 2. Error State (The "Debug" view)
+  
   if (error || !data) return (
     <div className="p-8 flex flex-col items-center justify-center min-h-screen text-center">
       <div className="bg-red-50 p-6 rounded-2xl border border-red-100 max-w-md">
@@ -92,9 +89,9 @@ const fetchDashboardData = async () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 space-y-6">
+    <div className="pro-page">
       
-      {/* 1. TOP STATS CARDS */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard 
           title="Total Employees" 
@@ -117,8 +114,8 @@ const fetchDashboardData = async () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* 2. PERFORMANCE CHART */}
-        <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+        {}
+        <div className="lg:col-span-2 pro-card">
           <h3 className="font-bold text-gray-800 mb-6 flex items-center gap-2">
             <TrendingUp size={20} className="text-blue-500" />
             Performance Distribution
@@ -138,8 +135,8 @@ const fetchDashboardData = async () => {
           </div>
         </div>
 
-        {/* 3. PENDING LEAVES */}
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+        {}
+        <div className="pro-card">
           <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <AlertCircle size={20} className="text-red-500" />
             Supervisor Requests
@@ -166,8 +163,8 @@ const fetchDashboardData = async () => {
         </div>
       </div>
 
-      {/* 4. PERFORMANCE TABLE */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      {}
+      <div className="pro-table-wrap">
         <div className="p-6 border-b border-gray-50 flex flex-col sm:flex-row justify-between gap-4">
           <h3 className="font-bold text-gray-800">Employee Performance Details</h3>
           <div className="relative w-full sm:w-64">
@@ -181,8 +178,8 @@ const fetchDashboardData = async () => {
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-left">
-            <thead className="bg-gray-50 text-gray-500 text-xs uppercase">
+          <table className="pro-table">
+            <thead>
               <tr>
                 <th className="px-6 py-4">Employee</th>
                 <th className="px-6 py-4">Task Score</th>
@@ -230,15 +227,19 @@ const fetchDashboardData = async () => {
 };
 
 const StatCard = ({ title, value, icon, bgColor }) => (
-  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+  <motion.div
+    whileHover={{ y: -4 }}
+    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+    className="pro-card-interactive flex items-center justify-between"
+  >
     <div>
-      <p className="text-sm font-medium text-gray-500">{title}</p>
-      <p className="text-2xl font-bold text-gray-900 mt-1">{value}</p>
+      <p className="text-sm font-medium text-slate-500">{title}</p>
+      <p className="mt-1 text-2xl font-bold text-slate-900">{value}</p>
     </div>
-    <div className={`p-3 rounded-xl ${bgColor}`}>
+    <div className={`rounded-xl p-3 ${bgColor}`}>
       {React.cloneElement(icon, { size: 24 })}
     </div>
-  </div>
+  </motion.div>
 );
 
 const getRatingStyles = (rating) => {

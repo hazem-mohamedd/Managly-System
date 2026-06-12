@@ -6,7 +6,7 @@ const AdminAlerts = () => {
   const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 1. جلب البيانات من الباكند
+  
   const fetchAlerts = async () => {
     try {
       setLoading(true);
@@ -60,7 +60,7 @@ const AdminAlerts = () => {
   return (
     <div className="max-w-5xl mx-auto space-y-8 p-6 animate-in fade-in duration-500">
       
-      {/* Header - Simple & Clean */}
+      {}
       <div className="border-b border-slate-100 pb-6">
           <h1 className="text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
             <div className="bg-indigo-600 p-2.5 rounded-2xl text-white shadow-lg shadow-indigo-100">
@@ -71,7 +71,7 @@ const AdminAlerts = () => {
           <p className="text-slate-500 text-sm font-medium mt-2 ml-14">A complete history of all system notifications and activities.</p>
       </div>
 
-      {/* Alerts List */}
+      {}
       <div className="space-y-4">
         {loading ? (
             <div className="flex flex-col items-center py-32 text-slate-400">

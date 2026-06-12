@@ -13,15 +13,15 @@ const JobDetailsApply = () => {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
 
-  // =========================
-  // 1. جلب بيانات الوظيفة
-  // =========================
+  
+  
+  
   useEffect(() => {
     const fetchJob = async () => {
       try {
         setLoading(true);
         setError(null);
-        // الـ API هنا بيرجع البيانات مباشرة بناءً على الكود السابق
+        
         const res = await api.get(`/public-vacancy/${jobId}`);
         setJob(res.data || res); 
       } catch (err) {
@@ -35,9 +35,9 @@ const JobDetailsApply = () => {
     fetchJob();
   }, [jobId]);
 
-  // =========================
-  // 2. دالة التقديم (الإصلاح هنا)
-  // =========================
+  
+  
+  
 const handleApply = async () => {
     if (!cv) {
       alert("Please upload your CV (PDF only)");
@@ -51,7 +51,7 @@ const handleApply = async () => {
       formData.append("vacancy_id", jobId); 
       formData.append("cv", cv);
 
-      // الطلب دلوقتي هيروح صح لـ Laravel
+      
       const res = await api.post("/apply", formData);
 
       console.log("APPLY SUCCESS:", res);
@@ -59,7 +59,7 @@ const handleApply = async () => {
       navigate('/apply');
 
     } catch (err) {
-      // بما إننا بنعمل throw لـ error كامل من الـ api.js
+      
       console.error("Validation Errors:", err.errors);
       
       if (err.errors) {
@@ -73,9 +73,9 @@ const handleApply = async () => {
     }
 };
 
-  // =========================
-  // حالات التحميل والخطأ
-  // =========================
+  
+  
+  
   if (loading) {
     return (
       <div className="p-40 flex flex-col items-center justify-center gap-4">
@@ -98,7 +98,7 @@ const handleApply = async () => {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6 animate-in fade-in duration-500">
       
-      {/* Back Button */}
+      {}
       <button
         onClick={() => navigate('/apply')}
         className="group flex items-center gap-2 text-slate-400 hover:text-indigo-600 transition-colors font-bold text-sm"
@@ -107,17 +107,17 @@ const handleApply = async () => {
         Back to Open Vacancies
       </button>
 
-      {/* Main Card */}
+      {}
       <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl shadow-slate-200/50 border border-slate-50 relative overflow-hidden">
         
-        {/* Background Decorative Icon */}
+        {}
         <div className="absolute -right-12 -bottom-12 opacity-[0.03] pointer-events-none">
           <Briefcase size={250} />
         </div>
 
         <div className="relative z-10 space-y-8">
           
-          {/* Header Info */}
+          {}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-wider border border-emerald-100">
@@ -140,7 +140,7 @@ const handleApply = async () => {
 
           <hr className="border-slate-100" />
 
-          {/* Description */}
+          {}
           <div className="space-y-4">
             <h2 className="text-xl font-black text-slate-800 flex items-center gap-2">
                 <FileText size={20} className="text-indigo-600" />
@@ -151,7 +151,7 @@ const handleApply = async () => {
             </p>
           </div>
 
-          {/* Upload Section */}
+          {}
           <div className="bg-slate-50 rounded-3xl p-8 border-2 border-dashed border-slate-200 space-y-4">
             <div className="space-y-1">
                 <h3 className="font-black text-slate-800">Submit Your Application</h3>
@@ -181,7 +181,7 @@ const handleApply = async () => {
             )}
           </div>
 
-          {/* Action Button */}
+          {}
           <button
             onClick={handleApply}
             disabled={uploading}
@@ -204,7 +204,7 @@ const handleApply = async () => {
   );
 };
 
-// أيقونة مساعدة للتحقق
+
 const CheckCircle = ({ size }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 );

@@ -12,11 +12,11 @@ const SupervisorAttendance = () => {
         const fetchAttendance = async () => {
             setIsLoading(true);
             try {
-                // تحديد الـ endpoint بناءً على الـ Tab
-                // الـ current مربوط بالـ API الجديد بتاعك
+                
+                
                 const endpoint = activeTab === 'current' 
                     ? '/current-attendance-history' 
-                    : '/attendance-history'; // ده الشهر القديم مثلاً
+                    : '/attendance-history'; 
 
                 const data = await api.get(endpoint);
                 
@@ -30,14 +30,14 @@ const SupervisorAttendance = () => {
         };
 
         fetchAttendance();
-    }, [activeTab]); // هيعمل Fetch جديد كل ما تغير التاب
+    }, [activeTab]); 
 
     const formatTime = (time) => time ? time.substring(0, 5) : '--:--';
     const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '--';
 
     return (
         <div className="max-w-5xl mx-auto space-y-6">
-            {/* Header Section */}
+            {}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-center space-x-3">
                     <div className="bg-blue-100 p-3 rounded-xl text-blue-600">
@@ -46,7 +46,7 @@ const SupervisorAttendance = () => {
                     <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Attendance</h1>
                 </div>
 
-                {/* Summary Badges */}
+                {}
                 <div className="flex flex-wrap items-center gap-4 text-sm font-medium bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
                     <div className="flex items-center space-x-2">
                         <div className="w-3 h-1 bg-green-500 rounded-full"></div>
@@ -67,7 +67,7 @@ const SupervisorAttendance = () => {
                 </div>
             </div>
 
-            {/* Tabs Controller */}
+            {}
             <div className="flex items-center gap-1 bg-gray-200 p-1 rounded-xl w-fit border border-gray-300 shadow-sm">
                 <button
                     onClick={() => setActiveTab('current')}
@@ -91,7 +91,7 @@ const SupervisorAttendance = () => {
                 </button>
             </div>
 
-            {/* Table Container */}
+            {}
             <div className="bg-white shadow-md rounded-xl overflow-hidden min-h-[200px] border border-gray-100">
                 {isLoading ? (
                     <div className="p-16 text-center">

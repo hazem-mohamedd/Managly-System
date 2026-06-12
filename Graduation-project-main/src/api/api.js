@@ -17,8 +17,8 @@ const getHeaders = (isFormData = false) => {
 };
 
 export const api = {
-    async get(endpoint, params = {}) { // 👈 أضفنا params هنا
-        // تحويل الـ Object لـ Query String (مثلاً: ?month=4&year=2026)
+    async get(endpoint, params = {}) { 
+        
         const queryString = Object.keys(params).length 
             ? '?' + new URLSearchParams(params).toString() 
             : '';
@@ -50,17 +50,17 @@ export const api = {
         const response = await fetch(`${BASE_URL}${endpoint}`, {
             method: 'POST',
             headers: getHeaders(isFormData),
-            body: isFormData ? data : JSON.stringify(data), // 💡 هنا السر
+            body: isFormData ? data : JSON.stringify(data), 
         });
 
         if (!response.ok) {
             const error = await response.json();
-            throw error; // 💡 ارمي الـ error كـ object مش كـ string
+            throw error; 
         }
         return response.json();
     },
 
-    // طبق نفس المنطق على put و patch لو هتحتاج ترفع ملفات فيهم
+    
     async put(endpoint, data) {
         const isFormData = data instanceof FormData;
         const response = await fetch(`${BASE_URL}${endpoint}`, {
@@ -75,5 +75,5 @@ export const api = {
         return response.json();
     },
     
-    // ... باقي الدوال بنفس النمط
+    
 };

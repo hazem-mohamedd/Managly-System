@@ -5,15 +5,15 @@ import './index.css';
 
 import Login from './pages/Login.tsx';
 
-// ================= LAYOUTS =================
+
 import EmployeeLayout from './layouts/EmployeeLayout';
 import AdminLayout from './layouts/AdminLayout';
 import SupervisorLayout from './layouts/SupervisorLayout';
 import HRLayout from './layouts/HRLayout';
 import ApplyLayout from './layouts/ApplyLayout';
 
-// ================= PAGES =================
-// Employee
+
+
 import EmployeeDashboard from './pages/employee/Dashboard';
 import EmployeeAttendance from './pages/employee/Attendance';
 import EmployeeLeaves from './pages/employee/Leaves';
@@ -21,7 +21,7 @@ import EmployeeTasks from './pages/employee/Tasks';
 import EmployeeProfile from './pages/employee/Profile';
 import EmployeePayslips from './pages/employee/Payslips';
 
-// Admin
+
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminAttendance from './pages/admin/Attendance';
 import AdminManageDepartments from './pages/admin/ManageDepartments';
@@ -33,7 +33,7 @@ import AdminAlerts from './pages/admin/Alerts';
 import AdminAttendanceSettings from './pages/admin/AttendanceSettings';
 import AdminManageUsers from './pages/admin/ManageUsers';
 
-// Supervisor
+
 import SupervisorDashboard from './pages/Supervisor/Dashboard';
 import SupervisorEmployees from './pages/Supervisor/Team';
 import SupervisorLeaveRequests from './pages/Supervisor/LeaveRequests';
@@ -45,7 +45,7 @@ import SupervisorTasks from './pages/Supervisor/Tasks';
 import SupervisorAlerts from './pages/Supervisor/Alerts';
 import SupervisorReports from './pages/Supervisor/Reports';
 
-// HR
+
 import Dashboard from './pages/hr/Dashboard';
 import Attendance from './pages/hr/Attendance';
 import Employees from './pages/hr/Employees';
@@ -62,12 +62,12 @@ import AIApplicants from './pages/hr/AIApplicants';
 import Alerts from './pages/hr/Alerts';
 import Profile from './pages/hr/Profile';
 
-// Apply (Public)
+
 import ApplyRecruitment from './pages/apply/OpenJobs';
 import JobDetailsApply from './pages/apply/JobDetailsApply';
 import Page from './pages/apply/Us';
 
-// ================= PROTECTED ROUTE COMPONENT =================
+
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
   return isAuthenticated ? children : <Navigate to="/login" replace />;
@@ -78,12 +78,12 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
 
-        {/* 1. المسارات الافتراضية والـ Login */}
+        {}
         <Route path="/" element={<Navigate to="/Portal/Us" replace />} />
         <Route path="/login" element={<Login />} />
 
-        {/* 2. مسارات التقديم (Public - No Login Required) */}
-        {/* خليناها بره أي ProtectedRoute عشان المتقدمين يدخلوا عادي */}
+        {}
+        {}
         <Route path="Portal" element={<ApplyLayout />} >
           <Route index element={<Page />} />
           <Route path="OpenPosition" element={<ApplyRecruitment />} />
@@ -93,7 +93,7 @@ createRoot(document.getElementById('root')).render(
 
         
 
-        {/* 3. مسارات الموظف (Protected) */}
+        {}
         <Route path="/employee" element={
           <ProtectedRoute>
             <EmployeeLayout />
@@ -107,7 +107,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="payslips" element={<EmployeePayslips />} />
         </Route>
 
-        {/* 4. مسارات الأدمن (Protected) */}
+        {}
         <Route path="/admin" element={
           <ProtectedRoute>
             <AdminLayout />
@@ -125,7 +125,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="users" element={<AdminManageUsers />} />
         </Route>
 
-        {/* 5. مسارات السوبر فايزر (Protected) */}
+        {}
         <Route path="/supervisor" element={
           <ProtectedRoute>
             <SupervisorLayout />
@@ -143,7 +143,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="reports" element={<SupervisorReports />} />
         </Route>
 
-        {/* 6. مسارات الـ HR (Protected & Fixed Paths) */}
+        {}
         <Route path="/hr" element={
           <ProtectedRoute>
             <HRLayout />
@@ -164,7 +164,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="recruitment/:jobId" element={<JobDetails />} />
           <Route path="recruitment/:jobId/applicants" element={<Applicants />} />
           
-          {/* ✅ تم التصحيح: شيلنا الـ / من أول المسار عشان يكون Relative للـ /hr */}
+          {}
           <Route path="vacancies/:jobId/ai-filter" element={<AIApplicants />} />
           
           <Route path="alerts" element={<Alerts />} />

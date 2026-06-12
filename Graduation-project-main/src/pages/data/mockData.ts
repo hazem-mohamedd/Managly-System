@@ -119,7 +119,7 @@ export const mockLeaveRequests: LeaveRequest[] = [
   },
 ];
 
-// Attendance records from DB (sample of real data)
+
 export const mockAttendance: AttendanceRecord[] = [
   { id: 15, user_id: 17, date: '2026-03-01', time_in: '09:05', time_out: '17:00', status: 'present', late_minutes: 0, early_leave_minutes: 0, overtime_minutes: 0 },
   { id: 16, user_id: 17, date: '2026-03-02', time_in: '09:25', time_out: '17:00', status: 'late', late_minutes: 20, early_leave_minutes: 0, overtime_minutes: 0 },

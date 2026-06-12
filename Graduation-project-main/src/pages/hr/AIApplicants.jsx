@@ -9,16 +9,16 @@ const AIApplicants = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // =========================
-  // Fetch AI Results
-  // =========================
+  
+  
+  
   const fetchAIResults = async () => {
     try {
       setLoading(true);
 
       const res = await api.get(`/vacancies/${jobId}/ai-filter`);
 
-      // ✅ FIX: handle all possible response shapes
+      
       const responseData = res?.data?.data || res?.data || res;
 
       setData(responseData);
@@ -35,16 +35,16 @@ const AIApplicants = () => {
     fetchAIResults();
   }, [jobId]);
 
-  // =========================
-  // LOADING
-  // =========================
+  
+  
+  
   if (loading) {
     return <AILoading />;
   }
 
-  // =========================
-  // EMPTY STATE
-  // =========================
+  
+  
+  
   if (!data || !data.candidates || data.candidates.length === 0) {
     return (
       <div className="p-8 text-center text-gray-500">
@@ -53,13 +53,13 @@ const AIApplicants = () => {
     );
   }
 
-  // =========================
-  // UI
-  // =========================
+  
+  
+  
   return (
     <div className="max-w-5xl mx-auto">
 
-      {/* HEADER */}
+      {}
       <div className="mb-6">
         <h1 className="text-2xl font-bold">
           🤖 AI Ranked Candidates
@@ -71,7 +71,7 @@ const AIApplicants = () => {
         </p>
       </div>
 
-      {/* CARDS */}
+      {}
       <div className="space-y-4">
 
         {data.candidates.map((c, index) => (
@@ -85,7 +85,7 @@ const AIApplicants = () => {
 
             <div className="flex items-center justify-between">
 
-              {/* LEFT */}
+              {}
               <div>
                 <p className="font-semibold text-gray-900">
                   #{index + 1} • Application {c.application_id}
@@ -96,7 +96,7 @@ const AIApplicants = () => {
                 </p>
               </div>
 
-              {/* SCORE */}
+              {}
               <div
                 className={`
                   px-4 py-2 rounded-xl font-bold text-black
@@ -115,7 +115,7 @@ const AIApplicants = () => {
 
             </div>
 
-            {/* CV LINK */}
+            {}
             <div className="mt-3">
               <a
                 href={c.cv_url}

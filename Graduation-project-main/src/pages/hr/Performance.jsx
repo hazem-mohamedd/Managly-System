@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Performance = () => {
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]); // داتا البحث
+    const [filteredData, setFilteredData] = useState([]); 
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -48,7 +48,7 @@ const Performance = () => {
     return (
         <div className="p-6 max-w-7xl mx-auto animate-in fade-in duration-500 space-y-6">
             
-            {/* --- Header Section --- */}
+            {}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Performance Analytics</h1>
@@ -80,7 +80,7 @@ const Performance = () => {
                 </button>
             </div>
 
-            {/* --- Table Container --- */}
+            {}
             <div className="bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
                 {error && (
                     <div className="p-4 bg-rose-50 text-rose-600 text-center text-sm font-bold border-b border-rose-100">

@@ -95,7 +95,7 @@ function ManageDepartments() {
       }
     });
 
-    // remove from UI مباشرة
+    
     setDepartments(prev => prev.filter(d => d.id !== id));
 
   } catch (err) {
@@ -105,7 +105,7 @@ function ManageDepartments() {
   return (
     <div className="page-container fade-in">
 
-      {/* HEADER */}
+      {}
       <div className="page-header">
         <h1 className="page-title">Manage Departments</h1>
 
@@ -114,7 +114,7 @@ function ManageDepartments() {
         </button>
       </div>
 
-      {/* TABLE */}
+      {}
       <div className="table-card">
 
         <table className="custom-table">
@@ -159,7 +159,7 @@ function ManageDepartments() {
 
       </div>
 
-      {/* MODAL */}
+      {}
       {isModalOpen && (
         <div className="modal-overlay">
 

@@ -9,7 +9,7 @@ const Applicants = () => {
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch Applicants
+  
   const fetchApplicants = async () => {
     try {
       const res = await api.get(`/vacancies/${jobId}/applications`);
@@ -32,14 +32,14 @@ const Applicants = () => {
   return (
     <div className="max-w-5xl mx-auto">
 
-      {/* Header */}
+      {}
       <div className="flex items-center justify-between mb-6">
 
         <h1 className="text-2xl font-bold">
           Applicants
         </h1>
 
-        {/* 🔥 AI BUTTON */}
+        {}
         <button
           onClick={() => navigate(`/hr/vacancies/${jobId}/ai-filter`)}
           className="
@@ -55,7 +55,7 @@ const Applicants = () => {
 
       </div>
 
-      {/* Table */}
+      {}
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
 
         <table className="w-full text-left">

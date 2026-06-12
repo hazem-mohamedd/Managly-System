@@ -88,9 +88,9 @@ function AdminAttendanceSettings() {
     }
   };
 
-  // =========================
-  // UI
-  // =========================
+  
+  
+  
   if (loading) return <p style={{ padding: '20px' }}>Loading...</p>;
 
   return (

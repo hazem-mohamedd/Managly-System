@@ -5,7 +5,7 @@ import { api } from '../../api/api';
 
 const Reports = () => {
     const pdfRef = useRef();
-    const [reportType, setReportType] = useState('salary'); // 'salary', 'attendance', 'payroll'
+    const [reportType, setReportType] = useState('salary'); 
     const [month, setMonth] = useState(new Date().getMonth() + 1);
     const [year, setYear] = useState(new Date().getFullYear());
     const [data, setData] = useState([]);
@@ -19,7 +19,7 @@ const Reports = () => {
             if (reportType === 'payroll') endpoint = `/reports/payroll?month=${month}&year=${year}`;
 
             const response = await api.get(endpoint);
-            // Handle different response structures
+            
             if (reportType === 'salary') {
                 setData(response.data || response);
             } else {
@@ -132,7 +132,7 @@ const Reports = () => {
 
     return (
         <div className="max-w-7xl mx-auto space-y-6">
-            {/* Header */}
+            {}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
@@ -150,7 +150,7 @@ const Reports = () => {
                 </button>
             </div>
 
-            {/* Filters bar */}
+            {}
             <div className="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex flex-wrap items-center gap-4">
                 <div className="flex bg-slate-100 p-1 rounded-2xl">
                     <button 
@@ -196,7 +196,7 @@ const Reports = () => {
                 )}
             </div>
 
-            {/* Table Container */}
+            {}
             <div className="bg-white rounded-[32px] border border-slate-100 shadow-xl overflow-hidden min-h-[400px]">
                 {loading ? (
                     <div className="flex flex-col items-center justify-center py-40 text-slate-400">
@@ -214,7 +214,7 @@ const Reports = () => {
                 )}
             </div>
 
-            {/* Hidden PDF Container */}
+            {}
             <div style={{ position: 'absolute', top: '-20000px', left: '-20000px' }}>
                 <div ref={pdfRef} className="bg-white p-10 w-[1200px] font-sans">
                     <div className="flex justify-between items-start mb-10 border-b pb-8">

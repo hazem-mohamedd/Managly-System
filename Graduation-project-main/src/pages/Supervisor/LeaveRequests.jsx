@@ -142,7 +142,7 @@ const SupervisorLeaveRequests = () => {
                                             gap: '10px'
                                         }}
                                     >
-                                        {/* View */}
+                                        {}
                                         <button
                                             onClick={() => setSelectedRequest(req)}
                                             style={{
@@ -158,7 +158,7 @@ const SupervisorLeaveRequests = () => {
                                             <Eye size={16} />
                                         </button>
 
-                                        {/* Actions */}
+                                        {}
                                         {req.status === 'pending' ? (
                                             <div style={{ display: 'flex', gap: '6px' }}>
                                                 <button
@@ -216,7 +216,7 @@ const SupervisorLeaveRequests = () => {
                 </table>
             </div>
 
-            {/* Modal */}
+            {}
 {selectedRequest && (
   <div 
     className="modal-overlay"
@@ -241,7 +241,7 @@ const SupervisorLeaveRequests = () => {
       }}
     >
 
-      {/* Header */}
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -269,7 +269,7 @@ const SupervisorLeaveRequests = () => {
         </button>
       </div>
 
-      {/* Employee */}
+      {}
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -300,7 +300,7 @@ const SupervisorLeaveRequests = () => {
         </div>
       </div>
 
-      {/* Info Cards */}
+      {}
       <div style={{ display: 'grid', gap: '12px' }}>
 
         <div style={cardStyle}>
@@ -365,7 +365,7 @@ const SupervisorLeaveRequests = () => {
 
       </div>
 
-      {/* Status */}
+      {}
       <div style={{ marginTop: '20px', textAlign: 'center' }}>
         <span style={{
           padding: '6px 14px',

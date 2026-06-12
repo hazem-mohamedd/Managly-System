@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import PageTransition from '../components/PageTransition';
 import Sidebar from '../components/Sidebar';
 import TopHeader from '../components/TopHeader';
 
@@ -11,26 +12,28 @@ const HRLayout = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex font-sans">
+    <div className="min-h-screen flex font-sans">
 
-      {/* Sidebar */}
+      {}
       <Sidebar
         mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
       />
 
-      {/* Content */}
+      {}
       <div className="flex-1 lg:ml-64 flex flex-col min-h-screen">
 
-        {/* Top Header */}
+        {}
         <TopHeader
           setMobileOpen={setMobileOpen}
           userProfilePicture={userProfilePicture}
         />
 
-        {/* Pages */}
-        <main className="flex-1 p-6 lg:p-8 overflow-y-auto w-full">
-          <Outlet context={{ userProfilePicture, setUserProfilePicture }} />
+        {}
+        <main className="pro-content scrollbar-thin flex-1 overflow-y-auto p-6 lg:p-8 w-full">
+          <PageTransition>
+            <Outlet context={{ userProfilePicture, setUserProfilePicture }} />
+          </PageTransition>
         </main>
 
       </div>

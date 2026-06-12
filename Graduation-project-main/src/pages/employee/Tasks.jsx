@@ -43,15 +43,15 @@ const EmployeeTasks = () => {
         fetchTasks();
     }, []);
 
-    // 2. وظيفة تحديث الحالة (سواء لبدء المهمة أو إنهائها)
+    
     const updateTaskStatus = async (taskId, newStatus) => {
         try {
-            // استخدام PATCH كما هو محدد في الـ Routes عندك
+            
             await api.patch(`/tasks/${taskId}`, {
-                status: newStatus // سيرسل 'progress' أو 'completed'
+                status: newStatus 
             });
 
-            // تحديث الحالة في الـ UI فوراً
+            
             setTasks(prevTasks =>
                 prevTasks.map(task =>
                     task.id === taskId 
@@ -65,7 +65,7 @@ const EmployeeTasks = () => {
         }
     };
 
-    // توحيد مسميات الحالات للعرض في الـ UI
+    
     const formatStatus = (status) => {
         const s = (status || '').toLowerCase();
         if (['pending', 'pinding', 'binding'].includes(s)) return 'Pending';
@@ -74,7 +74,7 @@ const EmployeeTasks = () => {
         return 'Pending';
     };
 
-    // فلترة البحث
+    
     const filteredTasks = useMemo(() => {
         return tasks.filter(task =>
             task.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -90,7 +90,7 @@ const EmployeeTasks = () => {
                 </div>
             </header>
 
-            {/* Search & Filter */}
+            {}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -108,7 +108,7 @@ const EmployeeTasks = () => {
                 </button>
             </div>
 
-            {/* Tasks Grid */}
+            {}
             <div className="min-h-[300px]">
                 {isLoading ? (
                     <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-gray-100">
@@ -150,7 +150,7 @@ const EmployeeTasks = () => {
                                     </div>
                                 </div>
 
-                                {/* الزرار الديناميكي */}
+                                {}
                                 <button
                                     onClick={() => {
                                         if (task.status === 'Pending') updateTaskStatus(task.id, 'progress');
