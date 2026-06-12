@@ -66,6 +66,7 @@ import Profile from './pages/hr/Profile';
 import ApplyRecruitment from './pages/apply/OpenJobs';
 import JobDetailsApply from './pages/apply/JobDetailsApply';
 import Page from './pages/apply/Us';
+import NotFound from './pages/NotFound';
 
 
 const ProtectedRoute = ({ children }) => {
@@ -171,6 +172,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="Profile" element={<Profile />} />
         </Route>
 
+        {/* Catch-all route for 404 Not Found */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
