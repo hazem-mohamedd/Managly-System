@@ -12,8 +12,22 @@
 .page-title {
   font-size: 1.9rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--text-main, #1f2937);
   letter-spacing: -0.3px;
+}
+
+/* ===================== */
+/* GLASS PANEL           */
+/* ===================== */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
 }
 
 /* ===================== */
@@ -45,8 +59,8 @@ button {
 
 .btn-secondary {
   background: #f1f5f9;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
+  color: var(--text-main, #1f2937);
+  border: 1px solid var(--border-color, #e5e7eb);
   padding: 10px 16px;
   border-radius: 10px;
   font-weight: 500;
@@ -73,8 +87,8 @@ button {
   align-items: center;
   gap: 16px;
   border-radius: 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-secondary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
   transition: 0.2s;
 }
 
@@ -110,8 +124,8 @@ button {
   align-items: center;
   gap: 14px;
   border-radius: 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-secondary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
   transition: 0.2s;
 }
 
@@ -130,8 +144,8 @@ button {
 }
 
 .task-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-secondary, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
   padding: 20px;
   border-radius: 16px;
   display: flex;
@@ -149,31 +163,44 @@ button {
 .task-card h4 {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-main, #1f2937);
 }
 
-/* status badge */
+/* ===================== */
+/* STATUS BADGES         */
+/* ===================== */
+
 .badge {
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
+/* Present */
 .badge.success {
-  background: #dcfce7;
-  color: #166534;
+  background: rgba(34,197,94,0.15);
+  color: #16a34a;
 }
 
+/* Late */
 .badge.warning {
-  background: #fef9c3;
-  color: #92400e;
+  background: rgba(234,179,8,0.15);
+  color: #ca8a04;
 }
 
+/* Leave */
 .badge.info {
-  background: #dbeafe;
-  color: #1e40af;
+  background: rgba(59,130,246,0.15);
+  color: #2563eb;
+}
+
+/* Absent */
+.badge.danger {
+  background: rgba(239,68,68,0.15);
+  color: #dc2626;
 }
 
 /* ===================== */
@@ -193,7 +220,7 @@ button {
 }
 
 .modal-content {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #ffffff);
   width: 100%;
   max-width: 520px;
   border-radius: 18px;
@@ -209,12 +236,24 @@ button {
 }
 
 /* inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main, #1f2937);
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
   padding: 11px 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 10px;
   font-size: 0.9rem;
   transition: 0.2s;
@@ -280,8 +319,38 @@ button {
 }
 
 /* ===================== */
-/* TEAM PAGE COLOR ENHANCEMENTS */
+/* CUSTOM TABLE          */
 /* ===================== */
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.custom-table thead {
+  background: #f8fafc;
+}
+
+.custom-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.custom-table td {
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
 
 /* Employee name */
 .custom-table td:first-child + td div:first-child {
@@ -312,42 +381,6 @@ button {
 }
 
 /* ===================== */
-/* STATUS BADGES */
-/* ===================== */
-
-.badge {
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-/* Present */
-.badge.success {
-  background: rgba(34,197,94,0.15);
-  color: #16a34a;
-}
-
-/* Late */
-.badge.warning {
-  background: rgba(234,179,8,0.15);
-  color: #ca8a04;
-}
-
-/* Leave */
-.badge.info {
-  background: rgba(59,130,246,0.15);
-  color: #2563eb;
-}
-
-/* Absent */
-.badge.danger {
-  background: rgba(239,68,68,0.15);
-  color: #dc2626;
-}
-
-/* ===================== */
 /* TASK COUNT COLORS */
 /* ===================== */
 
@@ -364,6 +397,10 @@ button {
 /* ===================== */
 /* ROW HOVER EFFECT */
 /* ===================== */
+
+.custom-table tbody tr {
+  transition: all 0.2s ease;
+}
 
 .custom-table tbody tr:hover {
   background: linear-gradient(
@@ -383,4 +420,110 @@ button {
   padding: 4px 10px;
   border-radius: 8px;
   font-size: 0.8rem;
+}
+
+/* ===================== */
+/* LOADER               */
+/* ===================== */
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #94a3b8;
+}
+
+/* ===================== */
+/* ANIMATION */
+/* ===================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== */
+/* EMPLOYEE INFO         */
+/* ===================== */
+
+.emp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.emp-info span {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.emp-info small {
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+/* ===================== */
+/* LEAVE TYPE BADGES     */
+/* ===================== */
+
+.badge-lite {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.info-lite {
+  background: rgba(59, 130, 246, 0.08);
+  color: #2563eb;
+}
+
+/* ===================== */
+/* DATE / REASON CELLS   */
+/* ===================== */
+
+.date-cell {
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.reason-cell {
+  font-size: 0.85rem;
+  color: #64748b;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===================== */
+/* STATUS PILLS          */
+/* ===================== */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pill.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-pill.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-pill.pending {
+  background: #fef9c3;
+  color: #92400e;
 }
