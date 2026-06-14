@@ -63,6 +63,7 @@ const LeaveRequestModal = ({ isOpen, onClose, onSuccess }) => {
                             <label className="text-sm font-semibold text-gray-700">Start Date</label>
                             <input 
                                 type="date" 
+                                min={new Date().toISOString().split('T')[0]}
                                 className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                                 value={formData.start_date}
                                 onChange={(e) => setFormData({...formData, start_date: e.target.value})}
@@ -73,6 +74,7 @@ const LeaveRequestModal = ({ isOpen, onClose, onSuccess }) => {
                             <label className="text-sm font-semibold text-gray-700">End Date</label>
                             <input 
                                 type="date" 
+                                min={formData.start_date || new Date().toISOString().split('T')[0]}
                                 className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                                 value={formData.end_date}
                                 onChange={(e) => setFormData({...formData, end_date: e.target.value})}

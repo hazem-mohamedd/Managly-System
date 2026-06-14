@@ -16,7 +16,6 @@ const Reports = () => {
         try {
             let endpoint = '/admin/users';
             if (reportType === 'attendance') endpoint = `/reports/attendance?month=${month}&year=${year}`;
-            if (reportType === 'payroll') endpoint = `/reports/payroll?month=${month}&year=${year}`;
 
             const response = await api.get(endpoint);
             
@@ -101,33 +100,6 @@ const Reports = () => {
                 </table>
             );
         }
-
-        if (reportType === 'payroll') {
-            return (
-                <table className={`w-full text-left border-collapse ${isForPdf ? 'border border-gray-300' : ''}`}>
-                    <thead>
-                        <tr className={`${isForPdf ? 'bg-blue-600 text-white' : 'bg-gray-50 text-gray-500'} text-xs font-bold uppercase`}>
-                            <th className="p-4">Name</th>
-                            <th className="p-4">Base</th>
-                            <th className="p-4">Overtime</th>
-                            <th className="p-4">Deductions</th>
-                            <th className="p-4 text-right text-green-700">Net Salary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((row, i) => (
-                            <tr key={i} className={`border-b ${isForPdf && i % 2 === 0 ? 'bg-gray-50' : ''}`}>
-                                <td className="p-4 font-medium">{row.employee_name || `${row.first_name || ''} ${row.last_name || ''}`.trim() || 'Unknown'}</td>
-                                <td className="p-4">EGP {parseFloat(row.payroll?.base_salary || 0).toLocaleString()}</td>
-                                <td className="p-4 text-green-600">+EGP {parseFloat(row.payroll?.overtime || 0).toLocaleString()}</td>
-                                <td className="p-4 text-red-600">-EGP {parseFloat(row.payroll?.deductions || 0).toLocaleString()}</td>
-                                <td className="p-4 text-right font-black text-green-700">EGP {parseFloat(row.payroll?.net_salary || 0).toLocaleString()}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            );
-        }
     };
 
     return (
@@ -164,12 +136,6 @@ const Reports = () => {
                         className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${reportType === 'attendance' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
                     >
                         Attendance
-                    </button>
-                    <button 
-                        onClick={() => setReportType('payroll')}
-                        className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${reportType === 'payroll' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                    >
-                        Payroll
                     </button>
                 </div>
 

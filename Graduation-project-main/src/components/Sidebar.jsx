@@ -16,9 +16,10 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const menuItems = [
+    const menuItems = [
     { icon: ChartLine, label: 'Dashboard', path: '/hr/home' },
-    { icon: Calendar, label: 'Leaves', path: '/hr/leaves' },
+    { icon: Calendar, label: 'My Leaves', path: '/hr/my-leaves' },
+    { icon: Calendar, label: 'Manage Leaves', path: '/hr/leaves' },
     { icon: Users, label: 'Recruitment', path: '/hr/recruitment' },
     { icon: FolderDown, label: 'Reports', path: '/hr/reports' },
     { icon: Calendar, label: 'Attendance', path: '/hr/attendance' },

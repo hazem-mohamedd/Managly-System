@@ -50,6 +50,7 @@ import Dashboard from './pages/hr/Dashboard';
 import Attendance from './pages/hr/Attendance';
 import Employees from './pages/hr/Employees';
 import LeaveManagement from './pages/hr/LeaveManagement';
+import HRMyLeaves from './pages/hr/MyLeaves';
 import Payslips from './pages/hr/Payroll';
 import Performance from './pages/hr/Performance';
 import Recruitment from './pages/hr/Recruitment';
@@ -158,6 +159,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="attendance" element={<Attendance />} />
           <Route path="users" element={<Employees />} />
           <Route path="departments" element={<LeaveManagement />} />
+          <Route path="my-leaves" element={<HRMyLeaves />} />
           <Route path="leaves" element={<LeaveManagement />} />
           <Route path="Payslips" element={<Payslips />} />
           <Route path="performance" element={<Performance />} />

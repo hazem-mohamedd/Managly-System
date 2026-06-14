@@ -79,7 +79,7 @@ const SupervisorLayout = () => {
               </svg>
             </button>
             <div>
-              <h1 className="text-base font-bold text-slate-800">Supervisor</h1>
+              <h1 className="text-base font-bold text-slate-800">Manager</h1>
               <p className="hidden text-xs text-slate-400 sm:block">Team oversight</p>
             </div>
           </div>

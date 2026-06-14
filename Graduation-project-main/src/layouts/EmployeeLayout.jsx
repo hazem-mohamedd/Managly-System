@@ -76,7 +76,7 @@ const EmployeeLayout = () => {
             </button>
             <div>
               <h1 className="text-base font-bold text-slate-800">
-                {user ? `Welcome, ${user.name?.split(' ')[0]}` : 'Employee'}
+                {user ? `Welcome, ${(user.name || user.first_name || user.user?.name || user.user?.first_name || 'Employee').split(' ')[0]}` : 'Employee'}
               </h1>
               <p className="hidden text-xs text-slate-400 sm:block">{currentDate}</p>
             </div>

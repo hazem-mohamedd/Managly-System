@@ -106,7 +106,7 @@ const LeaveRequestModal = ({ isOpen, onClose, onSuccess }) => {
     );
 };
 
-const SupervisorLeaves = () => {
+const HRMyLeaves = () => {
     const [balances, setBalances] = useState(null);
     const [requestHistory, setRequestHistory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -275,4 +275,4 @@ const SupervisorLeaves = () => {
     );
 };
 
-export default SupervisorLeaves;
+export default HRMyLeaves;

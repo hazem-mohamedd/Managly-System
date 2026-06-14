@@ -10,6 +10,7 @@ const Card = ({ children, className = "" }) => (
 );
 
 const AdminDashboard = () => {
+    // Force Vite HMR reload
     const navigate = useNavigate();
     const [statusData, setStatusData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
