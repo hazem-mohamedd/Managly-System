@@ -6,25 +6,25 @@ const getHeaders = (isFormData = false) => {
         'Accept': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '',
     };
-    
+
     // 💡 لو الداتا مش FormData، حط الـ Content-Type كـ JSON
     // لو FormData، سيبها فاضية عشان المتصفح يحط الـ Boundary الصح
     if (!isFormData) {
         headers['Content-Type'] = 'application/json';
     }
-    
+
     return headers;
 };
 
 export const api = {
-    async get(endpoint, params = {}) { 
-        
-        const queryString = Object.keys(params).length 
-            ? '?' + new URLSearchParams(params).toString() 
+    async get(endpoint, params = {}) {
+
+        const queryString = Object.keys(params).length
+            ? '?' + new URLSearchParams(params).toString()
             : '';
 
         const response = await fetch(`${BASE_URL}${endpoint}${queryString}`, { // 👈 أضفنا الـ queryString هنا
-            headers: getHeaders() 
+            headers: getHeaders()
         });
 
         if (response.status === 401) {
@@ -42,25 +42,25 @@ export const api = {
 
         return response.json();
     },
-  
+
 
     async post(endpoint, data) {
         const isFormData = data instanceof FormData;
-        
+
         const response = await fetch(`${BASE_URL}${endpoint}`, {
             method: 'POST',
             headers: getHeaders(isFormData),
-            body: isFormData ? data : JSON.stringify(data), 
+            body: isFormData ? data : JSON.stringify(data),
         });
 
         if (!response.ok) {
             const error = await response.json();
-            throw error; 
+            throw error;
         }
         return response.json();
     },
 
-    
+
     async put(endpoint, data) {
         const isFormData = data instanceof FormData;
         const response = await fetch(`${BASE_URL}${endpoint}`, {
@@ -74,6 +74,21 @@ export const api = {
         }
         return response.json();
     },
-    
-    
+
+    async patch(endpoint, data) {
+        const isFormData = data instanceof FormData;
+
+        const response = await fetch(`${BASE_URL}${endpoint}`, {
+            method: 'PATCH',
+            headers: getHeaders(isFormData),
+            body: isFormData ? data : JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw error;
+        }
+
+        return response.json();
+    }
 };

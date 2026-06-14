@@ -89,12 +89,12 @@ const Reports = () => {
                     <tbody>
                         {data.map((row, i) => (
                             <tr key={i} className={`border-b ${isForPdf && i % 2 === 0 ? 'bg-gray-50' : ''}`}>
-                                <td className="p-4">{row.employee_name}</td>
-                                <td className="p-4 text-center text-green-600 font-bold">{row.attendance.present_days}</td>
-                                <td className="p-4 text-center text-yellow-600">{row.attendance.late_days}</td>
-                                <td className="p-4 text-center text-red-600">{row.attendance.absent_days}</td>
-                                <td className="p-4 text-center text-blue-600">{row.attendance.leave_days}</td>
-                                <td className="p-4 text-right font-mono">{row.attendance.overtime_hours}</td>
+                                <td className="p-4">{row.employee_name || `${row.first_name || ''} ${row.last_name || ''}`.trim() || 'Unknown'}</td>
+                                <td className="p-4 text-center text-green-600 font-bold">{row.attendance?.present_days || 0}</td>
+                                <td className="p-4 text-center text-yellow-600">{row.attendance?.late_days || 0}</td>
+                                <td className="p-4 text-center text-red-600">{row.attendance?.absent_days || 0}</td>
+                                <td className="p-4 text-center text-blue-600">{row.attendance?.leave_days || 0}</td>
+                                <td className="p-4 text-right font-mono">{row.attendance?.overtime_hours || 0}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -117,11 +117,11 @@ const Reports = () => {
                     <tbody>
                         {data.map((row, i) => (
                             <tr key={i} className={`border-b ${isForPdf && i % 2 === 0 ? 'bg-gray-50' : ''}`}>
-                                <td className="p-4 font-medium">{row.employee_name}</td>
-                                <td className="p-4">EGP {parseFloat(row.payroll.base_salary).toLocaleString()}</td>
-                                <td className="p-4 text-green-600">+EGP {parseFloat(row.payroll.overtime).toLocaleString()}</td>
-                                <td className="p-4 text-red-600">-EGP {parseFloat(row.payroll.deductions).toLocaleString()}</td>
-                                <td className="p-4 text-right font-black text-green-700">EGP {parseFloat(row.payroll.net_salary).toLocaleString()}</td>
+                                <td className="p-4 font-medium">{row.employee_name || `${row.first_name || ''} ${row.last_name || ''}`.trim() || 'Unknown'}</td>
+                                <td className="p-4">EGP {parseFloat(row.payroll?.base_salary || 0).toLocaleString()}</td>
+                                <td className="p-4 text-green-600">+EGP {parseFloat(row.payroll?.overtime || 0).toLocaleString()}</td>
+                                <td className="p-4 text-red-600">-EGP {parseFloat(row.payroll?.deductions || 0).toLocaleString()}</td>
+                                <td className="p-4 text-right font-black text-green-700">EGP {parseFloat(row.payroll?.net_salary || 0).toLocaleString()}</td>
                             </tr>
                         ))}
                     </tbody>

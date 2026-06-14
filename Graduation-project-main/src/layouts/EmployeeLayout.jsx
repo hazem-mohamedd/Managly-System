@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import AppSidebar from '../components/AppSidebar';
-import { Home, Clock, CheckSquare, Calendar, User, Wallet } from 'lucide-react';
+import { Home, Clock, CheckSquare, Calendar, User, Wallet, Bell } from 'lucide-react';
 import { api } from '../api/api';
 
 const EmployeeLayout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/employee/home';
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -79,6 +81,17 @@ const EmployeeLayout = () => {
               <p className="hidden text-xs text-slate-400 sm:block">{currentDate}</p>
             </div>
           </div>
+
+          {isHomePage && (
+            <NavLink
+              to="/employee/alerts"
+              className="relative rounded-xl p-2.5 text-slate-500 transition-all hover:bg-blue-50 hover:text-blue-600"
+              title="Alerts"
+            >
+              <Bell className="h-5 w-5" />
+              <span className="absolute right-2 top-2 h-2 w-2 rounded-full border-2 border-white bg-red-500" />
+            </NavLink>
+          )}
         </motion.header>
 
         <main className="pro-content scrollbar-thin flex-1 overflow-y-auto p-4 lg:p-8">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Clock, Calendar, FileText, List, AlertCircle } from 'lucide-react';
+import { CheckCircle, Clock, Calendar, FileText, List, AlertCircle, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api/api';
 
@@ -91,33 +91,33 @@ const AdminDashboard = () => {
                 {}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <button 
-                        onClick={() => navigate('/employee/leaves')}
+                        onClick={() => navigate('/admin/leaves')}
                         className="flex flex-col items-center justify-center p-8 bg-blue-50 hover:bg-blue-100 transition-all rounded-2xl group shadow-sm"
                     >
                         <div className="w-14 h-14 bg-white text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
                             <Calendar className="w-7 h-7" />
                         </div>
-                        <span className="font-bold text-blue-900">Request Leave</span>
+                        <span className="font-bold text-blue-900">Manage Leaves</span>
                     </button>
 
                     <button 
-                        onClick={() => navigate('/employee/payslips')}
+                        onClick={() => navigate('/admin/payslips')}
                         className="flex flex-col items-center justify-center p-8 bg-indigo-50 hover:bg-indigo-100 transition-all rounded-2xl group shadow-sm"
                     >
                         <div className="w-14 h-14 bg-white text-indigo-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
                             <FileText className="w-7 h-7" />
                         </div>
-                        <span className="font-bold text-indigo-900">View Payslips</span>
+                        <span className="font-bold text-indigo-900">Manage Payslips</span>
                     </button>
 
                     <button 
-                        onClick={() => navigate('/employee/tasks')}
+                        onClick={() => navigate('/admin/users')}
                         className="flex flex-col items-center justify-center p-8 bg-emerald-50 hover:bg-emerald-100 transition-all rounded-2xl group shadow-sm"
                     >
                         <div className="w-14 h-14 bg-white text-emerald-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-                            <List className="w-7 h-7" />
+                            <Users className="w-7 h-7" />
                         </div>
-                        <span className="font-bold text-emerald-900">My Tasks</span>
+                        <span className="font-bold text-emerald-900">Manage Users</span>
                     </button>
                 </div>
 

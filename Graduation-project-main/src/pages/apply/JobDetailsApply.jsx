@@ -56,7 +56,7 @@ const handleApply = async () => {
 
       console.log("APPLY SUCCESS:", res);
       alert("Applied successfully!");
-      navigate('/apply');
+      navigate('/Portal/OpenPosition');
 
     } catch (err) {
       
@@ -90,7 +90,7 @@ const handleApply = async () => {
       <div className="p-20 text-center space-y-4">
         <AlertCircle className="mx-auto text-rose-500" size={48} />
         <h2 className="text-xl font-bold text-slate-800">{error || "Job not found"}</h2>
-        <button onClick={() => navigate('/apply')} className="text-indigo-600 font-bold underline">Go Back</button>
+        <button onClick={() => navigate('/Portal/OpenPosition')} className="text-indigo-600 font-bold underline">Go Back</button>
       </div>
     );
   }
@@ -100,7 +100,7 @@ const handleApply = async () => {
       
       {}
       <button
-        onClick={() => navigate('/apply')}
+        onClick={() => navigate('/Portal/OpenPosition')}
         className="group flex items-center gap-2 text-slate-400 hover:text-indigo-600 transition-colors font-bold text-sm"
       >
         <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />

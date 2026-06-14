@@ -11,6 +11,7 @@ import {
   FileText,
   X,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -102,6 +103,7 @@ const plans = [
 ];
 
 const Page = () => {
+  const navigate = useNavigate();
   return (
     <div className="font-sans antialiased text-slate-900 bg-white">
 
@@ -140,6 +142,7 @@ const Page = () => {
             <motion.button
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               className="pro-btn-primary flex items-center justify-center gap-2 px-8 py-4"
             >
               Start Free Trial
@@ -149,6 +152,7 @@ const Page = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               className="pro-btn-secondary px-8 py-4"
             >
               Book a Demo
@@ -346,6 +350,7 @@ const Page = () => {
                 </ul>
 
                 <button
+                  onClick={() => navigate('/Portal/Payment')}
                   className={`w-full py-4 rounded-xl font-semibold transition ${
                     plan.featured
                       ? "bg-blue-600 hover:bg-blue-700 text-white"

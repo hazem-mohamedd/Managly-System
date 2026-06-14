@@ -20,7 +20,7 @@ import EmployeeLeaves from './pages/employee/Leaves';
 import EmployeeTasks from './pages/employee/Tasks';
 import EmployeeProfile from './pages/employee/Profile';
 import EmployeePayslips from './pages/employee/Payslips';
-
+import EmployeeAlerts from './pages/employee/Alerts';
 
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminAttendance from './pages/admin/Attendance';
@@ -66,6 +66,7 @@ import Profile from './pages/hr/Profile';
 import ApplyRecruitment from './pages/apply/OpenJobs';
 import JobDetailsApply from './pages/apply/JobDetailsApply';
 import Page from './pages/apply/Us';
+import Payment from './pages/apply/Payment';
 import NotFound from './pages/NotFound';
 
 
@@ -90,6 +91,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="OpenPosition" element={<ApplyRecruitment />} />
           <Route path="OpenPosition/:jobId" element={<JobDetailsApply />} />
           <Route path="Us" element={<Page />} />
+          <Route path="Payment" element={<Payment />} />
         </Route>
 
         
@@ -106,6 +108,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="tasks" element={<EmployeeTasks />} />
           <Route path="profile" element={<EmployeeProfile />} />
           <Route path="payslips" element={<EmployeePayslips />} />
+          <Route path="alerts" element={<EmployeeAlerts />} />
         </Route>
 
         {}
